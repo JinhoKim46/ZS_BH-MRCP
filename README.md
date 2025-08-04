@@ -40,31 +40,31 @@ pip install -r requirements.txt
 
 ### Run
 #### Train
-1. Define the training configurations in the `configs/config.yaml` file.
-2. Run `main.py` by
+-  Define the training configurations in the `configs/config.yaml` file.
+- Run `main.py` by
 ```sh
 python main.py fit --config configs/config.yaml
 ```
-1. You can define the run name by adding the `--name` argument at run. Unless you define the run name, the run name is set to `%Y%m%d_%H%M%S__zs_{zs_mode}_bh_mrcp`. 
+- You can define the run name by adding the `--name` argument at run. Unless you define the run name, the run name is set to `%Y%m%d_%H%M%S__zs_{zs_mode}_bh_mrcp`. 
   ```sh
   python main.py fit --config configs/config.yaml --name test_run
   ```
-1. You can overwrite the configurations in the `configs/config.yaml` file by adding arguments at run. 
+-  You can overwrite the configurations in the `configs/config.yaml` file by adding arguments at run. 
   ```sh
   python main.py fit --config configs/config.yaml --model.zs_mode shallow
   ```
-1. Log files containing `checkpoints/`, `lightning_logs/`, and `script_dump/` are stored in `log_path/run_name`. `log_path` is defined in the `configs/paths.yaml` file.
-2. You can resume the training by giving `run_name` with `fit` command. `*.ckpt` file should be placed in `log_path/run_name/checkpoints/` to resume the model.
+- Log files containing `checkpoints/`, `lightning_logs/`, and `script_dump/` are stored in `log_path/run_name`. `log_path` is defined in the `configs/paths.yaml` file.
+- You can resume the training by giving `run_name` with `fit` command. `*.ckpt` file should be placed in `log_path/run_name/checkpoints/` to resume the model.
   ```sh
   python main.py fit --config configs/config.yaml --name run_name
   ```
 #### Test
-1. Run `main.py` with `run_name` by
+- Run `main.py` with `run_name` by
 ```sh
 python main.py test --config configs/config.yaml --name run_name
 ```
-1. `*.ckpt` file should be placed in `run_name/checkpoints/` to test the model.
-2. The output files are saved in `log_path/run_name/npys/FILENAME`.
+- `*.ckpt` file should be placed in `run_name/checkpoints/` to test the model.
+- The output files are saved in `log_path/run_name/npys/FILENAME`.
 #### Easy run
 We offer an easy run script, `run_zs_bh_mrcp.sh` to run the training and testing. You can define the configurations directly in the script. You can run the script by 
 ```sh

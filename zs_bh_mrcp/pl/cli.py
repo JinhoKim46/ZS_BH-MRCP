@@ -32,7 +32,7 @@ class DLReconCLI(LightningCLI):
         **kwargs,
     ):
         self.name = name
-        
+
         parser_kwargs = kwargs.pop("parser_kwargs", {})
         save_config_kwargs = kwargs.pop("save_config_kwargs", {})
         save_config_kwargs.update({"overwrite": True})
@@ -84,7 +84,7 @@ class DLReconCLI(LightningCLI):
             default=4,
             help="A standard deviation scale for the SSDU Gaussian mask.",
         )
-        
+
         group = parser.add_argument_group("Callback shortcut options:")
         group.add_argument(
             "--callback.val_log_images",
@@ -228,12 +228,11 @@ class DLReconCLI(LightningCLI):
             c.trainer.check_val_every_n_epoch = 1
             c.trainer.log_every_n_steps = 1
 
-
         c.data.device = int(c.trainer.devices[0]) # only support a single device. 
         c.data.rho_lambda = c.transform.ssdu_mask_rho_lambda
         c.data.rho_gamma = c.transform.ssdu_mask_rho_gamma
         c.data.zs_mode = c.model.zs_mode   
-        
+
         block_size = c.transform.ssdu_mask_center_block
         c.data.ssdu_mask_func = SSDUUniformMask(center_block=(block_size, block_size), std_scale=c.transform.ssdu_mask_std_scale)
 
