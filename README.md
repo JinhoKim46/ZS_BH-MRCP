@@ -36,7 +36,7 @@ pip install -r requirements.txt
     - `cs`: L1-wavelet compressed sensing reconstruction (Oversampled-Cropped Phase Encoding $\times$ Readout $\times$ Partition Encoding)
   - Attribute
     - `recon_crop_size`: The size of the reconstructed image cropping over-sampled in the phase encoding direction.
-- The `sample_data` directory contains sample breath-hold MRCP data zero-shot learning. You can find the data [here](https://doi.org/10.5281/zenodo.16731625). Additional information, such as header information, is ignored in the sample data. 
+- The `sample_data` directory contains sample breath-hold MRCP data zero-shot learning. You can find the data [here](https://doi.org/10.5281/zenodo.16731625). Additional information, i.e., header, is ignored in the sample data. 
 
 ### Run
 #### Train
