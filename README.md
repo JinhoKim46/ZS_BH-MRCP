@@ -1,4 +1,4 @@
-# Zero-shot self-supervised learning for breath-hold Magnetic Resonance Cholangiopancreatography (MRCP) reconstruction
+# Zero-shot self-supervised learning for breath-hold magnetic resonance cholangiopancreatography (MRCP) reconstruction
 This repository is for zero-shot self-supervised learning reconstruction to reduce breath-hold times in magnetic resonance cholangiopancreatography (MRCP). 
 
 
