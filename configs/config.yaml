@@ -1,0 +1,50 @@
+seed_everything: 42
+model:
+  lr: 0.0003          
+  lr_scheduler: CosineAnnealingLR    # [null, StepLR, CosineAnnealingLR, CosineAnnealingWarmRestarts]
+  zs_mode: shallow # [deep, shallow]
+  zs_params:
+    num_stages: 12 # For the shallow mode, this is set to zero automatically. 
+    num_resblocks: 8
+    chans: 64
+    cgdc_iter: 4
+    backbone: backbone
+data:
+  batch_size: 1
+  num_workers: 4
+  is_prototype: True
+  training_data_fname: data01 # Specify the data name to run without .h5 extension
+  zs_k: 10 # k-set of the ZS mask
+transform:
+  ssdu_mask_center_block: 5
+  ssdu_mask_rho_lambda: 0.4 # sampling ratio of |LAMBDA|/|OMEGA\GAMMA|
+  ssdu_mask_rho_gamma: 0.2 # sampling ratio of |GAMMA|/|OMEGA|
+  ssdu_mask_std_scale: 4
+trainer:
+  accelerator: gpu
+  devices: 1,
+  deterministic: True 
+  max_epochs: 3
+  use_distributed_sampler: True
+  check_val_every_n_epoch: 1
+  log_every_n_steps: 10
+  callbacks:
+    - class_path: pytorch_lightning.callbacks.LearningRateMonitor
+      init_args:
+        logging_interval: 'epoch'
+    - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+      init_args:
+        monitor: val_loss
+        mode: min
+        save_top_k: 1        
+        verbose: True 
+    - class_path: pytorch_lightning.callbacks.EarlyStopping
+      init_args:
+        monitor: val_loss
+        mode: min
+        patience: 3
+        verbose: True
+callback:
+  val_log_images: 16
+  val_log_interval: 10
+float32_matmul_precision: high # ["highest", "high", "medium"]

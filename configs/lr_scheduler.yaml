@@ -1,0 +1,11 @@
+StepLR:
+  decay_step: 10 # lr_step_size = Max_epochs(T_max) // lr_decay_step
+  gamma: 0.5
+CosineAnnealingWarmRestarts:
+  T_0: 4         # Number of iterations in the first restart
+  T_mult: 2       # How many times to increase T_0 after each restart
+  eta_min: 1.0e-6
+CosineAnnealingLR:
+  eta_min: 1.0e-6
+PolynomialLR:
+  power: 0.1
