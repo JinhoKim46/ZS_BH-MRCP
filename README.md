@@ -12,15 +12,15 @@ cd ZS_BH-MRCP
 ```sh
 conda create -n zs_bh_mrcp python=3.10.14
 ```
-1. Activate the conda environment
+3. Activate the conda environment
 ```sh
 conda activate zs_bh_mrcp
 ```
-1. Install pytorch
+4. Install pytorch
 ```sh
 conda install pytorch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 pytorch-cuda=11.8 -c pytorch -c nvidia
 ```
-3. Install a requirement packages
+5. Install a requirement packages
 ```sh
 pip install -r requirements.txt 
 ```
