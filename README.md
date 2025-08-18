@@ -70,3 +70,9 @@ We offer an easy run script, `run_zs_bh_mrcp.sh` to run the training and testing
 ```sh
 source run_zs_bh_mrcp.sh
 ```
+
+# Cite 
+This work has been submitted for publication and is currently under revision. Until the peer-reviewed version is available, please cite the preprint on arXiv.
+
+Kim, J., Nickel, M. D., & Knoll, F. (2025). Zero‑shot self‑supervised learning of single breath‑hold magnetic resonance cholangiopancreatography (MRCP) reconstruction. arXiv. https://doi.org/10.48550/arXiv.2508.09200
+
